@@ -43,6 +43,8 @@ export function duplicate (buffer) {
 export function mutate (buffer, mutationChance) {
   const newBuffer = duplicate(buffer)
   newBuffer.forEach((gene, idx) => {
+    if (idx === 0) return;
+
     if (Math.random() <= mutationChance) {
       const shiftAmount = Math.random() * 8 | 0
       const newGene = gene ^ (1 << shiftAmount)
