@@ -19,7 +19,7 @@ let plugins = [
 
 if (__DEV__) {
   plugins = plugins.concat([
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
   ]);
 } else {
@@ -69,7 +69,7 @@ const config = {
 
 if (__DEV__) {
   Object.keys(config.entry).forEach((entry) => {
-    config.entry[entry].unshift("webpack-hot-middleware/client");
+    // config.entry[entry].unshift("webpack-hot-middleware/client");
   });
 } else {
   delete config.devtool;

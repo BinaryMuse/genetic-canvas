@@ -5,7 +5,7 @@ import express from "express";
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config.es6';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
+// import webpackHotMiddleware from 'webpack-hot-middleware';
 
 const app = express();
 
@@ -15,7 +15,7 @@ if (app.settings.env === "development") {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath
   }));
-  app.use(webpackHotMiddleware(compiler));
+  // app.use(webpackHotMiddleware(compiler));
 }
 
 app.use(express.static(resolve(`${__dirname}/../public`)));

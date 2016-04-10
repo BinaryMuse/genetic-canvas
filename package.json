@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/boot.js",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "test": "mocha --compilers js:babel-register"
   },
   "keywords": [],
   "author": "",
@@ -25,13 +25,17 @@
     "babel-register": "^6.7.2",
     "babel-runtime": "^6.6.1",
     "core-decorators": "^0.12.0",
+    "etch": "^0.3.0",
     "express": "^4.13.4",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "webpack": "^1.12.14"
   },
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.2",
+    "babel-register": "^6.7.2",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
     "react-transform-hmr": "^1.0.4",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
