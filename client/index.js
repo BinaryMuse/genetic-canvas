@@ -26,14 +26,7 @@ class Application {
   constructor () {
     this.image = null
     const image = new Image()
-    image.onload = () => {
-      this.image = image
-      drawImage(this.image, this.imageCtx)
-      this.imageData = this.imageCtx.getImageData(0, 0, 256, 256).data
-      const parentData = this.parentCtx.getImageData(0, 0, 256, 256).data
-      this.score = scoreSimilarity(this.imageData, parentData)
-      etch.update(this)
-    }
+    this.newImage(image)
     image.src = '/monalisa.png'
     this.running = false
     this.parent = generate()
@@ -104,10 +97,19 @@ class Application {
   handleFileChange (evt) {
     const file = evt.target.files[0]
     imageFromFile(file, img => {
-      this.image = img
-      drawImage(this.image, this.imageCtx)
-      etch.update(this)
+      this.newImage(img)
     })
+  }
+
+  newImage (image) {
+    image.onload = () => {
+      this.image = image
+      drawImage(this.image, this.imageCtx)
+      this.imageData = this.imageCtx.getImageData(0, 0, 256, 256).data
+      const parentData = this.parentCtx.getImageData(0, 0, 256, 256).data
+      this.score = scoreSimilarity(this.imageData, parentData)
+      etch.update(this)
+    }
   }
 
   handleResume () {
