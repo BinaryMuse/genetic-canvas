@@ -37,9 +37,9 @@ class Application {
     this.score = -Infinity
     this.mutationProbability = {
       min: 0,
-      max: 0.3,
-      step: 0.01,
-      value: 0.05
+      max: 0.1,
+      step: 0.001,
+      value: 0.1
     }
 
     this.handleFileChange = this.handleFileChange.bind(this)
